@@ -1,0 +1,59 @@
+
+
+.close {
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+  border: none;
+  border-top-right-radius: 28px;
+  border-bottom-left-radius: 15%;
+  position: relative;
+  top: 12%;
+  left: 55%;
+  height: 10%;
+  width: 30%;
+  background-color: hsla(250, 100%, 90%, 10%)
+}
+
+.close:hover {
+  background-color: red;
+}
+
+.fav {
+  width: 43px;
+  height: 41px;
+  border-radius: 50%;
+  position: relative;
+  top: 82%;
+  left: 100%;
+  border: none;
+}
+
+.fav:hover {
+  background-color: pink;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+.name {
+  color: hsl(190, 70%, 30%);
+  -webkit-text-stroke: 1px;
+  position: relative;
+  bottom: 13%;
+  left: 5%;
+  width: fit-content;
+  background-color: hsla(50, 100%, 90%, 30%);
+  
+}
+
+.img {
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+  width: 120%;
+  border-radius: 30px;
+  
+}

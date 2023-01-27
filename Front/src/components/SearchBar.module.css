@@ -1,0 +1,12 @@
+.container{
+    background-color: blueviolet;
+    width: fit-content;    
+}
+
+.searchBar{
+   display: inline;
+   margin: 7px;
+   height: 30px;
+   border-radius: 5px;
+}
+

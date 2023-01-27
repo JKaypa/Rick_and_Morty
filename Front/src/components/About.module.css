@@ -1,0 +1,10 @@
+.container{
+    width: 30%;
+    margin: auto;
+}
+
+.title{
+    margin-top: 10%;
+    text-align:left;
+    background-color: unset;
+}
