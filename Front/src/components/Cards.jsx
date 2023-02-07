@@ -5,10 +5,10 @@ import style from "./Cards.module.css";
 export default function Cards({ onClose, characters }) {
   return (
     <div className={style.container}>
-      {characters?.map((char) => {
+      {characters?.map((char, i) => {
         return (
           <Card
-            key={char.id}
+            key={i}
             onClose={onClose}
             img={char.image}
             name={char.name}

@@ -3,6 +3,7 @@
     padding: 10px;
     display: flex;
     justify-content:space-between;
+    /* position:fixed; */
 }
 
 .bar{
@@ -12,5 +13,6 @@ span{
     margin: 50px;
     font-size: 30px;
 }
+
 
 

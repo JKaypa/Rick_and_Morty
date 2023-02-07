@@ -1,18 +1,46 @@
 
+.card {
+  background-color: greenyellow;
+  margin-top: 30px;
+  width: 260px;
+  height: 298px;
+  padding-bottom: 20px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  box-shadow: 2px 2px 9px .1px;
+  transition: .3s all
+}
 
-.close {
-  display: block;
-  margin: auto;
-  margin-bottom: 10px;
-  border: none;
-  border-top-right-radius: 28px;
-  border-bottom-left-radius: 15%;
+ 
+.card:hover{
+  font-size: large;
+  width: 270px;
+  height: 300px;
+  box-shadow: 5px 15px 30px 1px;
+  
+}
+
+.card:hover .name{
+  font-size: 14.5px;
+}
+.card:hover .close{
   position: relative;
-  top: 12%;
-  left: 55%;
-  height: 10%;
-  width: 30%;
-  background-color: hsla(250, 100%, 90%, 10%)
+  left: 220px;
+  bottom: 276px;
+}
+.close { 
+  position: relative;
+  bottom: 265px;
+  left: 210px;
+  width:50px;
+  height: 30px;
+  background-color: hsla(90, 100%, 20%, 50%);
+  border: none;
+  border-bottom-left-radius: 5px;
+  color: white;
+  transition: .3s all,
 }
 
 .close:hover {
@@ -20,19 +48,20 @@
 }
 
 .fav {
-  width: 43px;
-  height: 41px;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 3px;
+
+}
+
+.favb{
   border-radius: 50%;
   position: relative;
-  top: 82%;
-  left: 100%;
+  bottom: 45px;
+  right: 35px;
   border: none;
 }
-
-.fav:hover {
-  background-color: pink;
-}
-
 
 a {
   text-decoration: none;
@@ -40,20 +69,19 @@ a {
 
 .name {
   color: hsl(190, 70%, 30%);
-  -webkit-text-stroke: 1px;
-  position: relative;
-  bottom: 13%;
-  left: 5%;
-  width: fit-content;
-  background-color: hsla(50, 100%, 90%, 30%);
-  
+  -webkit-text-stroke: 0,5px;
+  font-size:14px;
+  text-align: center;
+  transition: .3s all;
 }
 
 .img {
-  display: block;
-  margin: auto;
-  margin-bottom: 10px;
-  width: 120%;
-  border-radius: 30px;
-  
+  width: 100%;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  position: relative;
+  top: 1px;
+
 }
+
+

@@ -1,7 +1,6 @@
-.container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:space-around;
-    padding: 55px 55px;
-    gap: 2%
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  /* gap: 0.5%; */
 }

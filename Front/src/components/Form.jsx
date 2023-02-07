@@ -70,7 +70,7 @@ function Form(props) {
           name="email"
           type="email"
           value={user.email}
-          autocomplete= 'off'
+          autoComplete= 'off'
         />
         <span className={style.error}>
           {errors.email === "" ? "" : errors.email}

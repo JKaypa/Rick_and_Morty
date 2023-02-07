@@ -24,11 +24,12 @@ function App() {
     setId(id);
   };
 
-  function onSearch(character) {
-    fetch(`http://localhost:3001/rickandmorty/onsearch/${character}`)
+  async function onSearch(charId, event) {
+    if (event.target.value === 'click') {
+      let random = Math.round(Math.random() * 864)
+      fetch(`http://localhost:3001/rickandmorty/character/${random}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.name) {
           let exist = characters.find((char) => char.id === data.id);
           exist
@@ -38,6 +39,23 @@ function App() {
       })
       .catch(() => window.alert("No hay personajes con ese ID"));
     setId("");
+
+    }
+    else if (event.key === 'Enter') {
+      fetch(`http://localhost:3001/rickandmorty/character/${charId}`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.name) {
+          let exist = characters.find((char) => char.id === data.id);
+          exist
+            ? alert("This character exists already")
+            : setCharacters((oldChars) => [...oldChars, data]);
+        }
+      })
+      .catch(() => window.alert("No hay personajes con ese ID"));
+    setId("");
+    }
+    
   }
 
   // useEffect(()=>{

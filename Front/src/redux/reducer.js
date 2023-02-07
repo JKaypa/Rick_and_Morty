@@ -10,21 +10,50 @@ const reducer = (state = initState, { type, payload }) => {
     case ADD_FAV:
       return {
         myFavorites: [...state.myFavorites, payload],
-        allChars: [...state.myFavorites],
+        allChars: [...state.allChars, payload],
       };
     case DEL_FAV:
       return {
         myFavorites: state.myFavorites.filter((char) => {
-          return char.id !== payload.id;
+          return char.id !== payload;
         }),
-        allChars: [...state.myFavorites]
+        allChars: state.allChars.filter((char) => {
+          return char.id !== payload;
+        }),
       };
     case FILTER:
-      return {
-        myFavorites: [...state.myFavorites].filter(fav => {
-          return 
-        })
-      };
+      if (payload === "All") {
+        return {
+          ...state,
+          myFavorites: [...state.allChars],
+        };
+      } else {
+        return {
+          ...state,
+          myFavorites: state.allChars.filter((char) => char.gender === payload),
+        };
+      }
+
+    case ORDER:
+      if (payload === "upward") {
+        return {
+          myFavorites: state.myFavorites.sort((a, b) => {
+            return a.id - b.id;
+          }),
+          allChars: state.allChars.sort((a, b) => {
+            return a.id - b.id;
+          })
+        };
+      } else {
+        return {
+          myFavorites: state.myFavorites.sort((a, b) => {
+            return b.id - a.id;
+          }),
+          allChars: state.allChars.sort((a, b) => {
+            return b.id - a.id;
+          }) 
+        };
+      }
     default:
       return state;
   }
