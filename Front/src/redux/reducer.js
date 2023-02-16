@@ -1,4 +1,4 @@
-import { ADD_FAV, DEL_FAV, FILTER, ORDER } from "./actions";
+import { ADD_FAV, GET_FAV, DEL_FAV, FILTER, ORDER } from "./actions";
 
 const initState = {
   myFavorites: [],
@@ -11,6 +11,11 @@ const reducer = (state = initState, { type, payload }) => {
       return {
         myFavorites: [...state.myFavorites, payload],
         allChars: [...state.allChars, payload],
+      };
+    case GET_FAV:
+      return {
+        myFavorites: payload,
+        allChars: payload
       };
     case DEL_FAV:
       return {
@@ -30,7 +35,7 @@ const reducer = (state = initState, { type, payload }) => {
       } else {
         return {
           ...state,
-          myFavorites: state.allChars.filter((char) => char.gender === payload),
+          myFavorites: state.allChars.filter(char => char.gender === payload)
         };
       }
 
@@ -42,7 +47,7 @@ const reducer = (state = initState, { type, payload }) => {
           }),
           allChars: state.allChars.sort((a, b) => {
             return a.id - b.id;
-          })
+          }),
         };
       } else {
         return {
@@ -51,7 +56,7 @@ const reducer = (state = initState, { type, payload }) => {
           }),
           allChars: state.allChars.sort((a, b) => {
             return b.id - a.id;
-          }) 
+          }),
         };
       }
     default:

@@ -7,6 +7,8 @@ import About from "./components/About";
 import Detail from "./components/Detail";
 import Form from "./components/Form";
 import Favorites from "./components/Favorites";
+import axios from 'axios';
+
 
 let username = "jose_kaypa@hotmail.com";
 let password = "1234567890";
@@ -58,9 +60,13 @@ function App() {
     
   }
 
-  // useEffect(()=>{
-  //   !access && navigate('/')
-  // }, [access])
+  useEffect(()=>{
+    // !access && navigate('/') 
+    async function hundred () {
+      const {data} = await axios ('http://localhost:3001/rickandmorty/allCharacters');
+      setCharacters(data)
+    } hundred();
+  }, [access])
 
   const login = (userData) => {
     if (userData.email === username && userData.password === password) {

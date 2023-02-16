@@ -4,14 +4,19 @@ export const ADD_FAV = "ADD_FAV";
 export const DEL_FAV = "DEL_FAV";
 export const FILTER = "FILTER";
 export const ORDER = "ORDER";
+export const GET_FAV = "GET_FAV";
 
 export const addFav = (char) => {
   return async function (dispatch) {
-    let { data } = await axios.post(
-      "http://localhost:3001/rickandmorty/fav",
-      char
-    );
+    let { data } = await axios.post("http://localhost:3001/rickandmorty/fav", char);
     dispatch({ type: ADD_FAV, payload: data });
+  };
+};
+
+export const getFav = () => {
+  return async function (dispatch) {
+    let { data } = await axios("http://localhost:3001/rickandmorty/fav");
+    dispatch({ type: GET_FAV, payload: data });
   };
 };
 

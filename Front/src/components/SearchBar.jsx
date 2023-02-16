@@ -1,10 +1,7 @@
 import style from "./SearchBar.module.css";
-import { useEffect } from "react";
 
 export default function SearchBar({ onSearch, onChange, id }) {
-  useEffect(() => {
-    
-  }, [])
+  
   return (
     <div className={style.container}>
       <input

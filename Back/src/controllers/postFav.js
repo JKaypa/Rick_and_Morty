@@ -1,9 +1,13 @@
-const fav = require("../utils/data");
+const {favorite} = require("../DB_connection");
 
-const postFav = (req, res) => {
-  const char = req.body;
-  fav.push(char);  
-    res.json(char);
+const postFav = async (req, res) => {
+  try {
+    const { id, name, gender, image } = req.body;
+    const fav = await favorite.create({ id, name, gender, image });
+    res.json(fav);
+  } catch (error) {
+    res.status(404).send({error: error.mesagge})
+  }
 };
 
 module.exports = postFav;

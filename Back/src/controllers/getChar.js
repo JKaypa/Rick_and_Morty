@@ -3,7 +3,9 @@ const axios = require("axios");
 const character = async (req, res) => {
   try {
     const { id } = req.params;
-    let { data } = await axios(`https://rickandmortyapi.com/api/character/${id}`);
+    let { data } = await axios(
+      `https://rickandmortyapi.com/api/character/${id}`
+    );
     const char = {
       id: data.id,
       name: data.name,

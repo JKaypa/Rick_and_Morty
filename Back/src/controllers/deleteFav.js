@@ -1,19 +1,13 @@
-const fav = require('../utils/data')
+const {favorite} = require("../DB_connection");
 
-const del = (req, res) => {
-  try{
+const del = async (req, res) => {
+  try {
     const { id } = req.params;
-    const index = fav.findIndex((fav) => fav.id == id);
-    if (index >= 0) {
-      fav.splice(index, 1);
-      return res.send("Character deleted successfuly");
-    }
-    throw Error("Character not found")
+    await favorite.destroy({ where: { id } });
+    res.send("Character deleted successfuly");
   } catch (err) {
-    res.status(404).send(err.message)
+    res.status(404).send(err.message);
   }
-  
 };
 
 module.exports = del;
-

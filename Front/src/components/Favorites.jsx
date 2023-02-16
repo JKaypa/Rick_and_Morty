@@ -1,23 +1,27 @@
 import { connect } from "react-redux";
-import { delFav, filterCards, orderCards } from "../redux/actions";
-import { useState } from "react";
+import { getFav, delFav, filterCards, orderCards } from "../redux/actions";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./Favorites.module.css";
 
-function Favorites({ favs, delFav, filterCards, orderCards }) {
+function Favorites({ favs, getFav, delFav, filterCards, orderCards }) {
   const [_render, setRender] = useState("");
+  
+  console.log(favs);
+
+  useEffect(() => {
+    getFav()
+  }, []);
 
   const handleFavorite = (id) => {
     delFav(id);
   };
-  console.log(favs);
   const handleOrder = (event) => {
     let value = event.target.value;
     if (value) {
       orderCards(value);
       setRender(value);
     }
-    console.log(value);
   };
 
   const handleGender = (event) => {
@@ -52,7 +56,7 @@ function Favorites({ favs, delFav, filterCards, orderCards }) {
               <Link to={`/detail/${fav.id}`}>
                 <h2 className={style.name}>{fav.name}</h2>
               </Link>
-              <img className={style.img} src={fav.img} alt={fav.name} />
+              <img className={style.img} src={fav.image} alt={fav.name} />
               <button
                 className={style.favb}
                 onClick={() => handleFavorite(fav.id)}>
@@ -73,6 +77,7 @@ export function mapStateToProps(state) {
 }
 export function mapDispatchToProps(dispatch) {
   return {
+    getFav: () => dispatch(getFav()),
     delFav: (obj) => dispatch(delFav(obj)),
     filterCards: (gender) => dispatch(filterCards(gender)),
     orderCards: (order) => dispatch(orderCards(order)),

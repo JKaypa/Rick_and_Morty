@@ -6,11 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { addFav, delFav } from "../redux/actions";
 import style from "./Card.module.css";
 
-function Card({ onClose, id, img, name, gender, species }) {
+function Card({ onClose, id, image, name, gender }) {
   const [isFav, setIsFav] = useState(false);
   const favs = useSelector((state) => state.myFavorites);
   const dispatch = useDispatch();
-  const char = { id, img, name, gender, species };
+  const char = { id, name, gender, image };
 
   useEffect(() => {
     if (favs.find((fav) => fav.id === id)) setIsFav(true);
@@ -28,14 +28,13 @@ function Card({ onClose, id, img, name, gender, species }) {
 
   return (
     <div className={style.card}>
-
       <Link to={`/detail/${id}`}>
-        <h2 className={style.name}>{name}</h2>
+        <h2 className={style.name}>{name }</h2>
       </Link>
-      <img className={style.img} src={img} alt={name} />
-        <button className={style.close} onClick={() => onClose(id)}>
-          X
-        </button>
+      <img className={style.img} src={image} alt={name} />
+      <button className={style.close} onClick={() => onClose(id)}>
+        X
+      </button>
       {isFav ? (
         <button className={style.favb} onClick={() => handleFavorite(char)}>
           <img className={style.fav} src="lover.png" />
