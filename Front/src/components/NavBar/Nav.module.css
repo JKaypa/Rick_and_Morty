@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+}
+
+.nav {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+  background-color: hsla(200, 100%, 100%, 15%);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  box-shadow: 0px 0px 20px 3px;
+}
+
+.linkContainer {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  gap: 10%;
+}
+
+.img {
+  width: 150px;
+  margin-left: 2%;
+}
+
+.navLink {
+  font-family: "Rick and Morty", cursive;
+  width: 100%;
+  font-size: 1.7em;
+  color: hsl(175, 60%, 50%);
+  -webkit-text-stroke: 0.6px black;
+  text-shadow: 0.5px 0.5px 0 yellowgreen, -0.5px -0.5px 0 yellowgreen,
+    -0.5px 0.5px 0 yellowgreen, 0.5px -0.5px 0 yellowgreen;
+}
+
+.navLink:hover {
+  text-shadow: 0px 0px 10px yellowgreen;
+}
+
+.active span {
+  text-shadow: 0px 0px 25px hsl(80, 100%, 60%), 
+               0px 0px 8px hsl(80, 100%, 60%);
+}

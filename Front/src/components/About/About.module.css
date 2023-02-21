@@ -1,0 +1,46 @@
+.container{
+    width: 50%;
+    margin: auto;
+}
+
+.title{
+    font-family: 'Creepster', cursive;
+    -webkit-text-stroke: .01px greenyellow;
+    color: hsl(200, 50%, 30%);
+    padding: 4%;
+    text-align:center;
+    background-color: unset;
+}
+
+.text {
+    font-family: 'Creepster', cursive;
+    -webkit-text-stroke: .3px greenyellow;
+    color: hsl(200, 50%, 30%);
+    font-size: 1.5rem;
+    text-align:center;  
+    line-height: 1.6em;
+    clip-path: fill-box;
+}
+
+.text a {
+-webkit-text-stroke: .3px greenyellow;
+color: hsl(200, 50%, 30%);
+}
+
+
+/* p {
+    font-family: 'Creepster', cursive;
+    -webkit-text-stroke: .3px greenyellow;
+    color: hsl(200, 50%, 30%);
+    font-size: 1.5rem;
+    text-align:center;  
+    line-height: 1.6em;
+}
+
+a{
+    font-family: 'Creepster', cursive;
+    -webkit-text-stroke: .5px greenyellow;
+    color: hsl(200, 50%, 30%);
+    font-size: 1.5rem;
+    text-align:center;
+} */

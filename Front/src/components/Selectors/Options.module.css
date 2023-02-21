@@ -1,0 +1,10 @@
+.selectors{
+  padding: 1px;
+  background-color: hsl(200, 35%, 40%);
+  color: hsl(80, 100%, 80%);
+  font-family: 'Denk one', sans-serif;
+  border: solid 3px yellowgreen;
+  margin: 10px;
+  margin-left: 2.5%;
+  border-radius: 8px;
+}

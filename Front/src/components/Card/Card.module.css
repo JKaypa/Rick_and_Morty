@@ -1,0 +1,80 @@
+/* * {
+  border : 1px solid red;
+} */
+@font-face {
+  font-family: "Rick and Morty";
+  src: url(../../../public/get-schwifty.ttf) format("truetype");
+}
+
+.card {
+  background-color: greenyellow;
+  margin-bottom: 8px;
+  width: 230px;
+  height: 264px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  box-shadow: 2px 2px 9px 0.1px;
+  transition: 0.3s all;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: 4px 5px 20px;
+}
+
+.close {
+  position: relative;
+  bottom: 217px;
+  left: 180px;
+  width: 50px;
+  height: 30px;
+  background-color: hsla(90, 100%, 20%, 50%);
+  border: none;
+  border-bottom-left-radius: 5px;
+  color: white;
+  transition: 0.3s all;
+}
+
+.close:hover {
+  background-color: red;
+}
+
+.fav {
+  width: 17px;
+  height: 20px;
+  position: relative;
+  top: 3px;
+  
+}
+
+.favb {
+  border-radius: 50%;
+  position: relative;
+  bottom: 25px;
+  right: 35px;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.name {
+  position: relative;
+  top: 9px;
+  font-family: "Denk one", sans-serif;
+  color: hsl(175, 55%, 30%);
+  font-size: 12px;
+  text-align: center;
+  transition: 0.3s all;
+}
+
+.img {
+  width: 100%;
+  position: relative;
+  top: 19px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+}

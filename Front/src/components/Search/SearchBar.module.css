@@ -1,0 +1,46 @@
+.container {
+  width: 45%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2%;
+  
+}
+
+.search {
+  border-radius: 8px;
+  height: 27px;
+  width: 25%;
+  margin-right: 20px;
+}
+
+.random {
+  color: hsl(80, 100%, 80%);
+  font-family: "Denk one", sans-serif;
+  width: 14 0px;
+  border-radius: 8px;
+  border: solid 3px hsl(80, 100%, 80%);
+  height: 25px;
+  background-color: hsl(200, 35%, 40%);
+  transition: 0.1s;
+}
+
+.random:hover {
+  background-color: hsl(80, 100%, 80%);
+  color: hsl(200, 35%, 40%);
+}
+
+.random:active {
+  background-color: hsl(80, 100%, 80%);
+  color: hsl(200, 35%, 40%);
+  box-shadow: 0px 0px 20px 5px hsl(80, 100%, 60%);
+}
+
+.search {
+  color: hsl(200, 35%, 50%);
+  font-family: "Denk one";
+}
+
+.search:focus {
+  box-shadow: 0px 0px 8px 2px hsl(80, 100%, 60%);
+}

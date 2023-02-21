@@ -3,7 +3,7 @@ const saveApiData = require('./controllers/saveApiData.js')
 const { sequelize } = require("./DB_connection");
 
 
-sequelize.sync({ force: true }).then(async () => { 
+sequelize.sync({ force: false }).then(async () => { 
   console.log('DataBase connected');
   await saveApiData();
   app.listen(3001, () => {
