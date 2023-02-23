@@ -7,7 +7,8 @@ body {
 }  
 
 .container {
-  min-height:570px;
+  padding-top: 1px;
+  min-height: 75vh;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -16,10 +17,12 @@ body {
 }
 
 .paginateContainer {
+  
   margin: auto;
   margin-bottom: 10px;
-  padding: 10px;
-  width: 30%;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  width: 55%;
   display: flex;
   justify-content: space-evenly;
   list-style: none;
@@ -28,14 +31,14 @@ body {
 .paginateContainer a {
   font-family: 'Denk one', sans-serif;
   color: hsl(200, 30%, 15%);
-  padding: 10px;
+  padding: 15px;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .paginateContainer a:hover {
   background-color: hsl(80, 100%, 80%);
-  color: hsl(200, 35%, 40%);
+  color: hsl(200, 30%, 15%);
 }
 
 .activePag a {

@@ -3,21 +3,15 @@ import style from "./Form.module.css";
 
 const regEmail =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-const regPass =
-  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
-let username = "jose_kaypa@hotmail.com";
-let password = "1234567890";
+const regPass = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
 
-function Form(props) {
+function Form({ login }) {
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
 
-  const [errors, setErrors] = useState({
-    email: "",
-    password: "",
-  });
+  const [errors, setErrors] = useState({});
 
   const hInputChange = (event) => {
     let key = event.target.name;
@@ -26,37 +20,36 @@ function Form(props) {
       ...user,
       [key]: value,
     });
-    if (value === "") setErrors({ ...errors, [key]: "" });
-    if (value === "") setErrors({ ...errors, [key]: "" });
+    if (key === "password")
+      regPass.test(value)
+        ? (errors.password = "")
+        : (errors.password =
+            "7 to 15 characters, at least one number and a special character");
+    if (value === "") setErrors({});
   };
 
   const validate = (user) => {
     let errors = {};
-    if (user.email === "") {
-      errors.email = "Enter an email";
-    }
-    if (user.password === "") {
-      errors.password = "Enter a password";
-    } else {
-      user.email !== username
-        ? (errors.email = "Email does not exist")
-        : (errors.email = "");
-      user.password !== password
-        ? (errors.password = "Password is wrong")
-        : (errors.password = "");
-    }
+    regEmail.test(user.email)
+      ? (errors.email = "")
+      : (errors.email = "Enter a valid email");
+    regPass.test(user.password)
+      ? (errors.password = "")
+      : (errors.password =
+          "7 to 15 characters, at least one number and a special character");
 
+    console.log(regEmail.test(user.email));
+    console.log(regPass.test(user.password));
     return errors;
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     setErrors(validate(user));
-    if (errors.email === "" && errors.password === "") props.login(user);
+    !errors.email && !errors.password && login(user);
   };
-
   return (
-    <div>
+    <div className={style.container}>
       <img
         className={style.rymImg}
         src="Rick_and_Morty.svg.png"
@@ -68,9 +61,9 @@ function Form(props) {
           onChange={hInputChange}
           placeholder="Username"
           name="email"
-          type="email"
+          type="text"
           value={user.email}
-          autoComplete= 'off'
+          autoComplete="off"
         />
         <span className={style.error}>
           {errors.email === "" ? "" : errors.email}

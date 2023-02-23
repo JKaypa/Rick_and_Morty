@@ -1,46 +1,33 @@
 .container{
-    width: 50%;
+    padding-top: 8px;
+    padding-bottom: 30px;
+    width: 80%;
+    background:  hsla(175, 50%, 25%, 30%);
+    backdrop-filter: blur(5px);
+    border-radius: 50px;
     margin: auto;
+    margin-top: 120px;
 }
 
 .title{
-    font-family: 'Creepster', cursive;
-    -webkit-text-stroke: .01px greenyellow;
-    color: hsl(200, 50%, 30%);
+    font-family: 'Denk one', cursive;
+    -webkit-text-stroke: .5px black;
+    color: white;
     padding: 4%;
     text-align:center;
-    background-color: unset;
+    
 }
 
-.text {
-    font-family: 'Creepster', cursive;
-    -webkit-text-stroke: .3px greenyellow;
-    color: hsl(200, 50%, 30%);
-    font-size: 1.5rem;
+.text, .text a{
+    font-family: 'Denk one', cursive;
+    -webkit-text-stroke: 1.5px black;
+    color: white;
+    font-size: 1.6rem;
     text-align:center;  
-    line-height: 1.6em;
+    line-height: 1.5em;
     clip-path: fill-box;
 }
 
-.text a {
--webkit-text-stroke: .3px greenyellow;
-color: hsl(200, 50%, 30%);
+.text li {
+    list-style: none;
 }
-
-
-/* p {
-    font-family: 'Creepster', cursive;
-    -webkit-text-stroke: .3px greenyellow;
-    color: hsl(200, 50%, 30%);
-    font-size: 1.5rem;
-    text-align:center;  
-    line-height: 1.6em;
-}
-
-a{
-    font-family: 'Creepster', cursive;
-    -webkit-text-stroke: .5px greenyellow;
-    color: hsl(200, 50%, 30%);
-    font-size: 1.5rem;
-    text-align:center;
-} */

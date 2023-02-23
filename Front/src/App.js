@@ -10,15 +10,15 @@ import { getFav } from "./redux/actions";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 
-let username = "jose_kaypa@hotmail.com";
-let password = "1234567890";
+const regEmail =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+const regPass = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/
 
 function App() {
   let [characters, setCharacters] = useState([]);
   let [alwaysSameChars, setAlwaysSameChars] = useState([]);
   let [_render, setRender] = useState("");
   let [id, setId] = useState("");
-  let [access, setAccess] = useState(false);
   const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
@@ -49,7 +49,7 @@ function App() {
           `http://localhost:3001/rickandmorty/character/${charId}`
         );
         let exist = characters.find((char) => char.id === data.id);
-        if (exist ) return alert("This character exists already") ; 
+        if (exist) return alert("This character exists already");
         setCharacters([...characters, data]);
         setAlwaysSameChars([...alwaysSameChars, data]);
       } catch (error) {
@@ -59,11 +59,6 @@ function App() {
   }
 
   useEffect(() => {
-    dispatch(getFav());
-  }, []);
-
-  useEffect(() => {
-    // !access && navigate('/')
     async function hundred() {
       const { data } = await axios(
         "http://localhost:3001/rickandmorty/allCharacters"
@@ -72,13 +67,18 @@ function App() {
       setAlwaysSameChars(data);
     }
     hundred();
-  }, [access]);
+  }, []);
 
-  const login = (userData) => {
-    if (userData.email === username && userData.password === password) {
-      setAccess(true);
+  useEffect(() => {
+    dispatch(getFav());
+  }, []);
+
+  console.log(characters);
+
+  const login = (user) => {
+    regEmail.test(user.email) &&
+      regPass.test(user.password) &&
       navigate("/home");
-    }
   };
 
   const handleGender = (event) => {
@@ -133,6 +133,7 @@ function App() {
       )}
       <Routes>
         <Route path="/" element={<Form login={login} />} />
+        <Route path="about" element={<About />} />
         <Route
           path="home"
           element={
@@ -144,7 +145,6 @@ function App() {
             />
           }
         />
-        <Route path="about" element={<About />} />
         <Route path="detail/:id" element={<Detail />} />
         <Route path="favorites" element={<Favorites />} />
       </Routes>

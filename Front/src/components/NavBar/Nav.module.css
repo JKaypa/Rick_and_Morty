@@ -1,12 +1,18 @@
 * {
+  box-sizing: border-box;
   margin: 0;
 }
+
+.burgerDis, .burgerAct, .menuDis, .menu {
+  display: none;
+}
+
 
 .nav {
   padding: 10px;
   display: flex;
   justify-content: space-between;
-  position: sticky;
+  position:fixed;
   top: 0px;
   z-index: 1;
   background-color: hsla(200, 100%, 100%, 15%);
@@ -16,21 +22,23 @@
 }
 
 .linkContainer {
-  width: 40%;
+  width: 30%;
   display: flex;
+  justify-content:space-evenly;
   align-items: center;
-  gap: 10%;
+  gap: 10px;
 }
 
 .img {
-  width: 150px;
-  margin-left: 2%;
+  width: 204px;
+  margin-left: 1%;
+  margin-right: 10px;
 }
 
-.navLink {
+.navLink  {
   font-family: "Rick and Morty", cursive;
   width: 100%;
-  font-size: 1.7em;
+  font-size: 200%;
   color: hsl(175, 60%, 50%);
   -webkit-text-stroke: 0.6px black;
   text-shadow: 0.5px 0.5px 0 yellowgreen, -0.5px -0.5px 0 yellowgreen,
@@ -44,4 +52,120 @@
 .active span {
   text-shadow: 0px 0px 25px hsl(80, 100%, 60%), 
                0px 0px 8px hsl(80, 100%, 60%);
+}
+
+.search {
+  width: 60%;
+  display: flex;
+  justify-content: end;
+}
+
+@media (max-width: 1100px) {
+  .img {
+    width: 130px;
+    
+  }
+
+  .navLink {
+    font-size: 135%;
+    text-shadow: 0.2px 0.2px 0 yellowgreen, -0.2px -0.2px 0 yellowgreen,
+    -0.2px 0.2px 0 yellowgreen, 0.2px -0.2px 0 yellowgreen;
+  }
+}
+
+@media (max-width: 700px) {
+  .linkContainer {
+    display: none;
+  }
+
+  .search {
+    display: none
+  }
+
+  .img {
+    width: 140px;
+  }
+
+  .burgerDis {
+    margin-top: auto;
+    display: block;
+    display: flex;
+    flex-direction: column;
+    width: 2.9rem;
+    height: 2.6rem;
+    border: 0;
+    background: transparent;
+    gap: .50rem
+  }
+
+  .burgerDis div {
+    
+    background: yellowgreen;
+    height: 4px;
+    width: 100%;
+    border: .2px solid hsl(200, 35%, 40%);
+    border-radius: 5px;
+    transition: all .5s;
+    transform-origin: left;
+  }
+  
+  .burgerAct {    
+    margin-left: auto;
+    margin-top: auto;
+    display: block;
+    display: flex;
+    flex-direction: column;
+    width: 2.9rem;
+    height: 2.6rem;
+    border: 0;
+    background: transparent;
+    gap: .50rem
+  }
+
+  .burgerAct div {
+    
+    background: yellowgreen;
+    height: 4px;
+    width: 100%;
+    border: .2px solid hsl(200, 35%, 40%);
+    border-radius: 5px;
+    transition: all .3s;
+    transform-origin: left;
+  }
+
+  .burgerAct div:first-child {
+    transform: rotate(45deg);
+  }
+
+  .burgerAct div:nth-child(2) {
+    background: transparent;
+    border: none;
+  }
+
+  .burgerAct div:last-child {
+    transform: rotate(-45deg);
+  }
+
+  .menu {
+    position: fixed;
+    top: 62.5px;
+    left: 50%;
+    width: 50%;
+    height: 300px;
+    backdrop-filter: blur(8px);
+    background-color: hsla(200, 100%, 100%, 15%);
+    z-index: 1;
+    border-radius: 0 0 0 20px;
+    box-shadow: 3px 8px 20px 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .navLink {
+    font-size: 200%;
+  }
+
+  
 }

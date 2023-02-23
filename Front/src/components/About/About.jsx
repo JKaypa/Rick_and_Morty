@@ -11,11 +11,12 @@ function About() {
           favorites, we can also sort them in ascending or descending order and
           filter them by gender.
         </p>
-
+        <br />
         <p>
           We can add one more character randomly or by its id which is a number
           from 1 to 864, keep in mind that the first 100 are already obtained.
         </p>
+        <br />
         <p>
           This App was created with:
           <ul>
@@ -26,7 +27,7 @@ function About() {
             <li>Pure CSS</li>
           </ul>
         </p>
-
+        <br />
         <p>
           Created by: Jose Kaypa, Software Engineer student and FullStack
           developer.

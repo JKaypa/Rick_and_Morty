@@ -1,10 +1,29 @@
+.container {
+  padding-top: 80px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .selectors{
-  padding: 1px;
+  width: 100px;
   background-color: hsl(200, 35%, 40%);
   color: hsl(80, 100%, 80%);
   font-family: 'Denk one', sans-serif;
-  border: solid 3px yellowgreen;
-  margin: 10px;
+  font-size: 14.5px;
+  border: solid 2px yellowgreen;
+  margin: 1%;
   margin-left: 2.5%;
   border-radius: 8px;
+}
+
+@media (max-width: 1100px) {
+  .container {
+    padding-top: 70px;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding-top: 70px;
+  }
 }
