@@ -9,8 +9,7 @@ const dFav = require("./routers/delFavRouter");
 
 const app = express();
 
-const allowed = ["http://localhost:3000"];
-app.use(cors({ origin: allowed }));
+app.use(cors());
 app.use(express.json());
 app.use("/rickandmorty/allCharacters", getAll);
 app.use("/rickandmorty/character", getChar);
