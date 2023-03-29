@@ -10,9 +10,12 @@ import { getFav } from "./redux/actions";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 
+// axios.defaults.baseURL = 'http://localhost:3001/rickandmorty';
+axios.defaults.baseURL = 'https://rickandmortybackend-production-536c.up.railway.app/rickandmorty';
+
 const regEmail =
-  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-const regPass = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const regPass = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
 
 function App() {
   let [characters, setCharacters] = useState([]);
@@ -22,7 +25,8 @@ function App() {
   const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
-
+  console.log(characters);
+  
   const onChange = (event) => {
     let id = event.target.value;
     setId(id);
@@ -32,9 +36,7 @@ function App() {
     if (event.target.value === "click") {
       try {
         let random = Math.round(Math.random() * 864);
-        const { data } = await axios(
-          `http://localhost:3001/rickandmorty/character/${random}`
-        );
+        const { data } = await axios(`/character/${random}`);
         let exist = characters.find((char) => char.id === data.id);
         if (exist) return alert("This character exists already");
         setCharacters([...characters, data]);
@@ -45,9 +47,7 @@ function App() {
     } else if (event.key === "Enter") {
       try {
         setId("");
-        const { data } = await axios(
-          `http://localhost:3001/rickandmorty/character/${charId}`
-        );
+        const { data } = await axios(`/character/${charId}`);
         let exist = characters.find((char) => char.id === data.id);
         if (exist) return alert("This character exists already");
         setCharacters([...characters, data]);
@@ -60,9 +60,7 @@ function App() {
 
   useEffect(() => {
     async function hundred() {
-      const { data } = await axios(
-        "http://localhost:3001/rickandmorty/allCharacters"
-      );
+      const { data } = await axios("/allCharacters");
       setCharacters(data);
       setAlwaysSameChars(data);
     }
@@ -73,7 +71,6 @@ function App() {
     dispatch(getFav());
   }, []);
 
-  console.log(characters);
 
   const login = (user) => {
     regEmail.test(user.email) &&

@@ -44,8 +44,8 @@ export default function Cards({
         })}
       </div>
       <ReactPaginate
-        breakeLebel="..."
         previousLabel="<"
+        breakLabel="..." 
         nextLabel=">"
         pageCount={pageCount}
         onPageChange={handlePage}

@@ -8,14 +8,14 @@ export const GET_FAV = "GET_FAV";
 
 export const addFav = (char) => {
   return async function (dispatch) {
-    let { data } = await axios.post("http://localhost:3001/rickandmorty/fav", char);
+    let { data } = await axios.post("/fav", char);
     dispatch({ type: ADD_FAV, payload: data });
   };
 };
 
 export const getFav = () => {
   return async function (dispatch) {
-    let { data } = await axios("http://localhost:3001/rickandmorty/fav");
+    let { data } = await axios("/fav");
     dispatch({ type: GET_FAV, payload: data });
   };
 };
@@ -23,7 +23,7 @@ export const getFav = () => {
 export const delFav = (id) => {
   return async (dispatch) => {
     dispatch({ type: DEL_FAV, payload: id });
-    await axios.delete(`http://localhost:3001/rickandmorty/fav/${id}`);
+    await axios.delete(`/fav/${id}`);
   };
 };
 export const filterCards = (gender) => {

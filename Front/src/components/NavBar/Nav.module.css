@@ -57,7 +57,7 @@
 .search {
   width: 60%;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 @media (max-width: 1100px) {
